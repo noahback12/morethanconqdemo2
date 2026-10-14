@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Facebook, Heart, Mail } from 'lucide-react';
 
 interface LayoutProps {
