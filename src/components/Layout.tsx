@@ -17,7 +17,7 @@ function Navigation() {
     };
 
     if (typeof mailerLiteWindow.ml === 'function') {
-      mailerLiteWindow.ml('show', 'OyE9u7', true);
+      mailerLiteWindow.ml('show', 'qdwaSr', true);
     } else {
       console.error('MailerLite failed to load.');
       alert('Newsletter signup is still loading. Please try again in a moment.');
