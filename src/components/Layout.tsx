@@ -57,7 +57,7 @@ function Navigation() {
             <button
               type="button"
               onClick={openNewsletterForm}
-              className="bg-transparent border-0 p-0 cursor-pointer text-gray-200 hover:text-white transition-colors text-base md:text-lg flex items-center"
+              className="ml-onclick-form bg-transparent border-0 p-0 cursor-pointer text-gray-200 hover:text-white transition-colors text-base md:text-lg flex items-center"
               aria-label="Open newsletter signup form"
             >
               <Mail
