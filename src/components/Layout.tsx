@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { Facebook, Heart } from 'lucide-react';
+import { Facebook, Heart, Mail } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -27,6 +27,13 @@ function Navigation() {
             <Link to="/aboutus" className="text-gray-200 hover:text-white transition-colors text-base md:text-lg">
               About Us
             </Link>
+            <a 
+              className="ml-onclick-form border border-gray-300 text-gray-200 hover:text-white hover:border-white px-4 md:px-6 py-2 rounded-full font-medium transition-colors flex items-center gap-2 text-base cursor-pointer"
+              href="javascript:void(0)" 
+              onClick={() => (window as any).ml('show', 'qdwaSr', true)}
+            >
+              Newsletter <Mail className="w-4 h-4" />
+            </a>
             <a 
               href="https://www.facebook.com/morethanconquerorsaf/" 
               target="_blank" 
