@@ -91,6 +91,7 @@ function Navigation() {
     </nav>
   );
 }
+function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12 mt-auto">
       <div className="container mx-auto px-4 md:px-6">
