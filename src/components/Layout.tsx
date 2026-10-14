@@ -54,19 +54,19 @@ function Navigation() {
               About Us
             </Link>
 
-         <button
-  type="button"
-  className="ml-onclick-form"
-  onClick={() => {
-    const mailerLiteWindow = window as typeof window & {
-      ml?: (command: string, formId: string, forceDisplay?: boolean) => void;
-    };
+            <button
+              type="button"
+              className="ml-onclick-form text-gray-200 hover:text-white transition-colors text-base md:text-lg bg-transparent border-none cursor-pointer p-0"
+              onClick={() => {
+                const mailerLiteWindow = window as typeof window & {
+                  ml?: (command: string, formId: string, forceDisplay?: boolean) => void;
+                };
 
-    mailerLiteWindow.ml?.('show', 'qdwaSr', true);
-  }}
->
-  Newsletter
-</button>
+                mailerLiteWindow.ml?.('show', 'qdwaSr', true);
+              }}
+            >
+              Newsletter
+            </button>
             <a
               href="https://www.facebook.com/morethanconquerorsaf/"
               target="_blank"
