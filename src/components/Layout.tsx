@@ -54,22 +54,19 @@ function Navigation() {
               About Us
             </Link>
 
-            <button
-              type="button"
-              onClick={openNewsletterForm}
-              className="ml-onclick-form bg-transparent border-0 p-0 cursor-pointer text-gray-200 hover:text-white transition-colors text-base md:text-lg flex items-center"
-              aria-label="Open newsletter signup form"
-            >
-              <Mail
-                className="w-6 h-6 md:hidden"
-                aria-hidden="true"
-              />
+         <button
+  type="button"
+  className="ml-onclick-form"
+  onClick={() => {
+    const mailerLiteWindow = window as typeof window & {
+      ml?: (command: string, formId: string, forceDisplay?: boolean) => void;
+    };
 
-              <span className="hidden md:inline">
-                Newsletter
-              </span>
-            </button>
-
+    mailerLiteWindow.ml?.('show', 'qdwaSr', true);
+  }}
+>
+  Newsletter
+</button>
             <a
               href="https://www.facebook.com/morethanconquerorsaf/"
               target="_blank"
