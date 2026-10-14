@@ -1,12 +1,28 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { Facebook, Heart } from 'lucide-react';
+import { Facebook, Heart, Mail } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 function Navigation() {
+  const openNewsletterForm = () => {
+    const mailerLiteWindow = window as typeof window & {
+      ml?: (
+        command: string,
+        formId: string,
+        forceDisplay?: boolean
+      ) => void;
+    };
+
+    if (typeof mailerLiteWindow.ml === 'function') {
+      mailerLiteWindow.ml('show', 'qdwaSr', true);
+    } else {
+      console.error('MailerLite failed to load.');
+    }
+  };
+
   return (
     <nav className="bg-gray-900 shadow-md fixed w-full z-50">
       <div className="container mx-auto px-4 py-3">
@@ -14,28 +30,54 @@ function Navigation() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link to="/">
-                <img 
-                  src="https://github.com/noahback12/morethanconqdemo/blob/main/src/morethanconquerorsroundlogo.png?raw=true" 
-                  alt="More Than Conquerors Logo" 
+                <img
+                  src="https://github.com/noahback12/morethanconqdemo/blob/main/src/morethanconquerorsroundlogo.png?raw=true"
+                  alt="More Than Conquerors Logo"
                   className="h-10 w-auto"
                 />
               </Link>
-              <span className="text-lg md:text-xl font-bold text-white">More Than Conquerors</span>
+
+              <span className="text-lg md:text-xl font-bold text-white">
+                More Than Conquerors
+              </span>
             </div>
           </div>
+
           <div className="flex items-center justify-between gap-4 md:gap-8">
-            <Link to="/aboutus" className="text-gray-200 hover:text-white transition-colors text-base md:text-lg">
+            <Link
+              to="/aboutus"
+              className="text-gray-200 hover:text-white transition-colors text-base md:text-lg"
+            >
               About Us
             </Link>
-            <a 
-              href="https://www.facebook.com/morethanconquerorsaf/" 
-              target="_blank" 
+
+            <button
+              type="button"
+              onClick={openNewsletterForm}
+              className="ml-onclick-form bg-transparent border-0 p-0 cursor-pointer text-gray-200 hover:text-white transition-colors text-base md:text-lg"
+              aria-label="Open newsletter signup form"
+            >
+              <Mail
+                className="w-6 h-6 md:hidden"
+                aria-hidden="true"
+              />
+
+              <span className="hidden md:inline">
+                Newsletter
+              </span>
+            </button>
+
+            <a
+              href="https://www.facebook.com/morethanconquerorsaf/"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-gray-200 hover:text-white transition-colors"
+              aria-label="Visit More Than Conquerors on Facebook"
             >
               <Facebook className="w-6 h-6" />
             </a>
-            <a 
+
+            <a
               href="https://www.zeffy.com/donation-form/2dc7b3bb-ef67-475a-b39d-144c57083db8"
               target="_blank"
               rel="noopener noreferrer"
@@ -49,8 +91,6 @@ function Navigation() {
     </nav>
   );
 }
-
-function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12 mt-auto">
       <div className="container mx-auto px-4 md:px-6">
